@@ -1,10 +1,17 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Runtime;
+using Android.Util;
+using FragmentThing;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using Debug = System.Diagnostics.Debug;
+using View = Android.Views.View;
 
 namespace NativeLayoutParams.Droid
 {
@@ -30,11 +37,14 @@ namespace NativeLayoutParams.Droid
 		private void FillInNativeControl(MainPage mainPage, ContentView view)
 		{
 			// Create the native control
-			var tv = new TextView(this) {Text = "I'm a native text view"};
-			tv.SetBackgroundColor(Color.Coral.ToAndroid());
+			var vg = new FragmentThingViewGroup(this);
 
 			// Wrap the native control and set it as the Content of the ContentView
-			view.Content = new NativeViewWrapper(tv, getDesiredSizeDelegate: SizeRequestDelegate);
+			view.Content = new NativeViewWrapper(vg);
+			
+			// If we want to override the way the control is measured, laid out, or sized, we can do it 
+			// with the additional parameters of NativeViewWrapper:
+			view.Content = new NativeViewWrapper(vg, getDesiredSizeDelegate: SizeRequestDelegate);
 		}
 
 		private SizeRequest? SizeRequestDelegate(NativeViewWrapperRenderer renderer,
@@ -58,10 +68,10 @@ namespace NativeLayoutParams.Droid
 			// We can manipulate the wrapper itself (which is a XF View)
 			wrapper.HeightRequest = 200;
 			wrapper.WidthRequest = 200;
-			wrapper.BackgroundColor = Color.Aqua;
 
 			// Or we can access the wrapped native control and modify its properties
-			(wrapper.NativeView as TextView).Gravity = GravityFlags.End;
+			(wrapper.NativeView as ViewGroup).SetBackgroundColor(Color.Aqua.ToAndroid());;
+			(wrapper.NativeView as ViewGroup).SetPadding(20, 20, 20, 20);
 		}
 	}
 }

@@ -133,6 +133,10 @@
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\FragmentThing\FragmentThing.csproj">
+      <Project>{b604966c-89c2-4c7b-9048-dee42b17a250}</Project>
+      <Name>FragmentThing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NativeLayoutParams\NativeLayoutParams.csproj">
       <Project>{de331244-f50b-4034-8caa-63b7fbea2303}</Project>
       <Name>NativeLayoutParams</Name>

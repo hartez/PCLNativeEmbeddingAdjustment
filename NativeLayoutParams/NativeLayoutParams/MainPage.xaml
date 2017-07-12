@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:NativeLayoutParams"
              xmlns:ios="clr-namespace:UIKit;assembly=Xamarin.iOS;targetPlatform=iOS"
              xmlns:androidWidget="clr-namespace:Android.Widget;assembly=Mono.Android;targetPlatform=Android"
+             xmlns:ft="clr-namespace:FragmentThing;assembly=FragmentThing;targetPlatform=Android"
              xmlns:formsandroid="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Platform.Android;targetPlatform=Android"
              xmlns:win="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows, Version=255.255.255.255, Culture=neutral, PublicKeyToken=null, ContentType=WindowsRuntime;targetPlatform=Windows"
              x:Class="NativeLayoutParams.MainPage">
@@ -12,14 +13,13 @@
         
         <StackLayout x:Name="Layout">
 
-            <!-- Native controls. In this project we've got a mechanism set up to ship the native Android TextView 
+            <!-- Native control. In this project we've got a mechanism set up to ship the native Android view group 
             out to the native Android project for some modifications -->
-            <ios:UILabel Text="Native Text" View.HorizontalOptions="Start"/>
-            <androidWidget:TextView Text="Native Text" x:Arguments="{x:Static formsandroid:Forms.Context}" />
-            <win:TextBlock Text="Native Text"/>
+            <ft:FragmentThingViewGroup x:Arguments="{x:Static formsandroid:Forms.Context}" />
 
             <!-- Placeholder for a native control to be added later -->
             <ContentView x:Name="Placeholder"></ContentView>
+
         </StackLayout>
     </ContentPage.Content>
 
