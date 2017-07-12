@@ -72,6 +72,7 @@ namespace NativeLayoutParams.Droid
 			// Or we can access the wrapped native control and modify its properties
 			(wrapper.NativeView as ViewGroup).SetBackgroundColor(Color.Aqua.ToAndroid());;
 			(wrapper.NativeView as ViewGroup).SetPadding(20, 20, 20, 20);
+			(wrapper.NativeView as ViewGroup).LayoutParameters = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MatchParent, ViewGroup.LayoutParams.MatchParent);
 		}
 	}
 }
