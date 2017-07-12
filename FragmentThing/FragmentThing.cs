@@ -14,6 +14,9 @@ namespace FragmentThing
 	{
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
+			// Creating the contents of the fragment programmatically; alternatively, you could use that
+			// inflater to inflate an XML layout
+
 			var tv = new TextView(Activity) {Text = "I'm a fragment."};
 			tv.SetBackgroundColor(Color.Bisque);
 			tv.Gravity = GravityFlags.Center;
