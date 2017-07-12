@@ -13,12 +13,12 @@
         
         <StackLayout x:Name="Layout">
 
+            <!-- Placeholder for a native control to be added later -->
+            <ContentView x:Name="Placeholder"></ContentView>
+
             <!-- Native control. In this project we've got a mechanism set up to ship the native Android view group 
             out to the native Android project for some modifications -->
             <ft:FragmentThingViewGroup x:Arguments="{x:Static formsandroid:Forms.Context}" />
-
-            <!-- Placeholder for a native control to be added later -->
-            <ContentView x:Name="Placeholder"></ContentView>
 
         </StackLayout>
     </ContentPage.Content>

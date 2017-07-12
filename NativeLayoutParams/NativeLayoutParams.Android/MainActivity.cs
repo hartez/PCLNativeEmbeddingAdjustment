@@ -50,7 +50,7 @@ namespace NativeLayoutParams.Droid
 		private SizeRequest? SizeRequestDelegate(NativeViewWrapperRenderer renderer,
 			int widthConstraint, int heightConstraint)
 		{
-			var size = new Xamarin.Forms.Size(200, 200);
+			var size = new Xamarin.Forms.Size(double.PositiveInfinity, 500);
 			return new SizeRequest(size);
 		}
 

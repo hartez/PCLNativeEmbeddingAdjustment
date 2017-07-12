@@ -13,8 +13,8 @@ namespace NativeLayoutParams
 
 			// Let any interested native projects know that we're ready for them to update
 			// (or create) native controls
-			MessagingCenter.Send(this, AdjustNativeControlSignal, Layout.Children[0]);
 			MessagingCenter.Send(this, FillInNativeControlSignal, Placeholder);
+			MessagingCenter.Send(this, AdjustNativeControlSignal, Layout.Children[1]);
 		}
 	}
 }
